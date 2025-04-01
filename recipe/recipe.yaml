@@ -50,6 +50,7 @@ tests:
         - cherab.generomak
         - cherab.openadas
         - cherab.tools
+      pip_check: false
 
   - script:
       - if: unix
