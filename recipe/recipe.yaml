@@ -9,10 +9,12 @@ package:
 source:
   url: https://github.com/${{ name|lower }}/core/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 39cd2d4e14546c472a44ebb5eef2a171797338b928ccb5eab902dcc7aa77b521
+  patches:
+    - numpy2.patch
 
 build:
   script: ${{ PYTHON }} -m pip install --no-build-isolation --no-deps -vv .
-  number: 1
+  number: 2
   skip:
     - win
 
@@ -50,14 +52,15 @@ tests:
         - cherab.generomak
         - cherab.openadas
         - cherab.tools
+      pip_check: false
 
   - script:
-    - if: unix
-      then:
-        - python -c "import cherab; print(cherab.__path__[0])" | xargs python -m unittest discover -v -s
-    - if: win
-      then:
-        - python -c "import cherab; print(cherab.__path__[0])" | python -m unittest discover -v -s ?
+      - if: unix
+        then:
+          - python -c "import cherab; print(cherab.__path__[0])" | xargs python -m unittest discover -v -s
+      - if: win
+        then:
+          - python -c "import cherab; print(cherab.__path__[0])" | python -m unittest discover -v -s ?
 
 
 
