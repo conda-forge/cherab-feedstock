@@ -14,7 +14,7 @@ source:
 
 build:
   script: ${{ PYTHON }} -m pip install --no-build-isolation --no-deps -vv .
-  number: 2
+  number: 3
   skip:
     - win
 
