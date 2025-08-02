@@ -75,3 +75,12 @@
  from raysect.primitive import Sphere
 
  from cherab.tools.observers.group.base import Observer0DGroup
+@@ -352,7 +352,7 @@ class TargettedPixelGroupTestCase(PixelGroupTestCase):
+     _GROUP_CLASS = TargettedPixelGroup
+
+     def setUp(self):
+-        self.observers = [TargettedPixel(targets=[Sphere()], pipelines=[PowerPipeline0D()]) for _ in range(self._NUM)]
++        self.observers = [TargetedPixel(targets=[Sphere()], pipelines=[PowerPipeline0D()]) for _ in range(self._NUM)]
+
+     def test_targets(self):
+         group = self._GROUP_CLASS(observers=self.observers)
