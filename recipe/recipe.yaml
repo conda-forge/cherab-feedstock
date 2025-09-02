@@ -14,7 +14,7 @@ source:
 
 build:
   script: ${{ PYTHON }} -m pip install --no-build-isolation --no-deps -vv .
-  number: 2
+  number: 3
   skip:
     - win
 
@@ -28,20 +28,20 @@ requirements:
         - cross-python_${{ target_platform }}
         - cython
         - numpy
-        - raysect >=0.9.0,<0.10a0
+        - raysect 0.9.*
   host:
     - python
     - pip
     - setuptools
     - cython
     - numpy
-    - raysect >=0.9.0,<0.10a0
+    - raysect 0.9.*
   run:
     - python
     - scipy
     - matplotlib-base
   run_exports:
-    - ${{ pin_subpackage("cherab", lower_bound="x.x.x", upper_bound="x.x.x") }}
+    - ${{ pin_subpackage("cherab", upper_bound="x.x") }}
 
 tests:
   - python:
@@ -60,8 +60,6 @@ tests:
       - if: win
         then:
           - python -c "import cherab; print(cherab.__path__[0])" | python -m unittest discover -v -s ?
-
-
 
 about:
   homepage: https://www.cherab.info/
