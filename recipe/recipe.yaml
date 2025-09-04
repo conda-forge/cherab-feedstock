@@ -11,12 +11,12 @@ source:
   sha256: 39cd2d4e14546c472a44ebb5eef2a171797338b928ccb5eab902dcc7aa77b521
   patches:
     - numpy2.patch
-    # raysect 0.9.0 compatibility
+    # raysect v0.9 compatibility
     - fix_targeted_inheritance.patch
 
 build:
   script: ${{ PYTHON }} -m pip install --no-build-isolation --no-deps -vv .
-  number: 3
+  number: 4
   skip:
     - win
 
