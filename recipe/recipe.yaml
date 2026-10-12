@@ -1,6 +1,6 @@
 context:
   name: cherab
-  version: "1.5.0"
+  version: "1.6.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/${{ name|lower }}/core/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 39cd2d4e14546c472a44ebb5eef2a171797338b928ccb5eab902dcc7aa77b521
+  sha256: ae20c3f2c32602e4c347fc8e80a3d7ce9000e6467af2f940cd562141604f7d38
   patches:
     - numpy2.patch
     # raysect v0.9 compatibility
@@ -16,7 +16,7 @@ source:
 
 build:
   script: ${{ PYTHON }} -m pip install --no-build-isolation --no-deps -vv .
-  number: 5
+  number: 0
   skip:
     - win
 
